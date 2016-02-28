@@ -32,9 +32,9 @@ class Book_Widget extends WP_Widget {
 	 */
     public function widget( $args, $instance ) {
         $vendors = array();
-        if ( ! empty( $instance['amazon_uri'] ) && $instance['amazon_uri' !== 'https://' )
+        if ( ! empty( $instance['amazon_uri'] ) && $instance['amazon_uri'] !== 'https://' )
             $vendors['amazon'] = $instance['amazon_uri'];
-        if ( ! empty( $instance['nook_uri'] ) && $instance['nook_uri' !== 'https://' )
+        if ( ! empty( $instance['nook_uri'] ) && $instance['nook_uri'] !== 'https://' )
             $vendors['nook'] = $instance['nook_uri'];
 
         echo $args['before_widget'];
