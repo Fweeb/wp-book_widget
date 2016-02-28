@@ -37,10 +37,26 @@ class Book_Widget extends WP_Widget {
         }
         if ( ! empty( $instance['bookcover_uri'] ) ) {
             ?>
-            <p><a href="<?php echo $instance['amazon_uri']; ?>"><img src="<?php echo $instance['bookcover_uri']; ?>" width="100" height="150" alt="<?php echo $instance['title']; ?>" title="<?php echo $instance['title']; ?>"/></a></p>
+            <p><img src="<?php echo $instance['bookcover_uri']; ?>" width="100" height="150" alt="<?php echo $instance['title']; ?>" title="<?php echo $instance['title']; ?>" /></p>
+            <?php
+        }
+        if ( ! empty( $instance['amazon_uri'] ) &&
+             ! empty( $instance['nook_uri'] ) ) {
+            ?>
             <p>Purchase on:</p>
             <ul style="list-style-type: none; display: inline; margin: 0; padding: 0;">
-                <li><a href="<?php echo $instance['amazon_uri']; ?>"><img src="<?php echo plugins_url( 'img/btn_amazon.png', __FILE__ ); ?>" width="24" height="24" alt="Amazon" title="Amazon" /></a></li>
+            <?php
+                if ( ! empty( $instance['amazon_uri'] ) ) {
+                    ?>
+                    <li><a href="<?php echo $instance['amazon_uri']; ?>"><img src="<?php echo plugins_url( 'img/btn_amazon.png', __FILE__ ); ?>" width="24" height="24" alt="Amazon" title="Amazon" /></a></li>
+                    <?php
+                }
+                if ( ! empty( $instance['nook_uri'] ) ) {
+                    ?>
+                    <li><a href="<?php echo $instance['nook_uri']; ?>"><img src="<?php echo plugins_url( 'img/btn_nook.png', __FILE__ ); ?>" width="24" height="24" alt="Nook" title="Nook" /></a></li>
+                    <?php
+                }
+            ?>
             </ul>
             <?php
         }
@@ -56,6 +72,7 @@ class Book_Widget extends WP_Widget {
         $title = ! empty( $instance['title'] ) ? $instance['title'] : __( 'New title', 'text_domain' );
         $bookcover_uri = ! empty( $instance['bookcover_uri'] ) ? $instance['bookcover_uri'] : __( 'https://', 'text_domain' );
         $amazon_uri = ! empty( $instance['amazon_uri'] ) ? $instance['amazon_uri'] : __( 'https://', 'text_domain' );
+        $nook_uri = ! empty( $instance['nook_uri'] ) ? $instance['nook_uri'] : __( 'https://', 'text_domain' );
         ?>
         <p>
         <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
@@ -69,7 +86,11 @@ class Book_Widget extends WP_Widget {
         <label for="<?php echo $this->get_field_id( 'amazon_uri' ); ?>"><?php _e( 'Amazon URI:' ); ?></label>
         <input class="widefat" id="<?php echo $this->get_field_id( 'amazon_uri' ); ?>" name="<?php echo $this->get_field_name( 'amazon_uri' ); ?>" type="text" value="<?php echo esc_attr( $amazon_uri ); ?>">
         </p>
-        <?php
+         <p>
+        <label for="<?php echo $this->get_field_id( 'nook_uri' ); ?>"><?php _e( 'Nook URI:' ); ?></label>
+        <input class="widefat" id="<?php echo $this->get_field_id( 'nook_uri' ); ?>" name="<?php echo $this->get_field_name( 'nook_uri' ); ?>" type="text" value="<?php echo esc_attr( $nook_uri ); ?>">
+        </p>
+       <?php
     }
 
     /**
@@ -83,6 +104,7 @@ class Book_Widget extends WP_Widget {
         $instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
         $instance['bookcover_uri'] = ( ! empty( $new_instance['bookcover_uri'] ) ) ? strip_tags( $new_instance['bookcover_uri'] ) : '';
         $instance['amazon_uri'] = ( ! empty( $new_instance['amazon_uri'] ) ) ? strip_tags( $new_instance['amazon_uri'] ) : '';
+        $instance['nook_uri'] = ( ! empty( $new_instance['nook_uri'] ) ) ? strip_tags( $new_instance['nook_uri'] ) : '';
 
         return $instance;
     }
