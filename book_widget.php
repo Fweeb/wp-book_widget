@@ -15,6 +15,7 @@ if( !defined('ABSPATH') )
 
 class Book_Widget extends WP_Widget {
 
+    //XXX Using PHP 5.2 style constructor. Might be wise to switch to 5.3 style with namespaces
     public function __construct() {
         $widget_ops = array(
             'classname' => 'book_widget',
@@ -34,6 +35,11 @@ class Book_Widget extends WP_Widget {
         if ( ! empty( $instance['title'] ) ) {
             echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
         }
+        if ( ! empty( $instance['bookcover_uri'] ) ) {
+            ?>
+            <img src="<?php echo $instance['bookcover_uri']; ?>" width="100" height="150" alt="<?php echo $instance['title']; ?>" />
+            <?php
+        }
         echo __( 'Test', 'text_domain' ); //XXX
         echo $args['after_widget'];
     }
@@ -45,10 +51,15 @@ class Book_Widget extends WP_Widget {
 	 */
     public function form( $instance ) {
         $title = ! empty( $instance['title'] ) ? $instance['title'] : __( 'New title', 'text_domain' );
+        $bookcover_uri = ! empty( $instance['bookcover_uri'] ) ? $instance['bookcover_uri'] : __( 'Book cover URI', 'text_domain' );
         ?>
         <p>
         <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
         <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
+        </p>
+        <p>
+        <label for="<?php echo $this->get_field_id( 'bookcover_uri' ); ?>"><?php _e( 'Book Cover URI:' ); ?></label>
+        <input class="widefat" id="<?php echo $this->get_field_id( 'bookcover_uri' ); ?>" name="<?php echo $this->get_field_name( 'bookcover_uri' ); ?>" type="text" value="<?php echo esc_attr( $bookcover_uri ); ?>">
         </p>
         <?php
     }
@@ -62,6 +73,7 @@ class Book_Widget extends WP_Widget {
     function update( $new_instance, $old_instance ) {
         $instance = array();
         $instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
+        $instance['bookcover_uri'] = ( ! empty( $new_instance['bookcover_uri'] ) ) ? strip_tags( $new_instance['bookcover_uri'] ) : '';
 
         return $instance;
     }
