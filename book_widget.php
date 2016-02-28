@@ -53,12 +53,12 @@ class Book_Widget extends WP_Widget {
             <?php
                 if ( ! empty( $vendors['amazon'] ) ) {
                     ?>
-                    <li><a href="<?php echo $vendors['amazon']; ?>"><img src="<?php echo plugins_url( 'img/btn_amazon.png', __FILE__ ); ?>" width="24" height="24" alt="Amazon" title="Amazon" /></a></li>
+                    <li style="display: inline;"><a href="<?php echo $vendors['amazon']; ?>"><img src="<?php echo plugins_url( 'img/btn_amazon.png', __FILE__ ); ?>" width="24" height="24" alt="Amazon" title="Amazon" /></a></li>
                     <?php
                 }
                 if ( ! empty( $vendors['nook'] ) ) {
                     ?>
-                    <li><a href="<?php echo $vendors['nook']; ?>"><img src="<?php echo plugins_url( 'img/btn_nook.png', __FILE__ ); ?>" width="24" height="24" alt="Nook" title="Nook" /></a></li>
+                    <li style="display: inline;"><a href="<?php echo $vendors['nook']; ?>"><img src="<?php echo plugins_url( 'img/btn_nook.png', __FILE__ ); ?>" width="24" height="24" alt="Nook" title="Nook" /></a></li>
                     <?php
                 }
             ?>
