@@ -8,7 +8,16 @@ License URI: http://www.gnu.org/licenses/gpl.txt
 A simple widget for adding links to your books for sale on sites like Amazon, Kobo, Nook, etc.
 
 == Description ==
-Long description goes here
+
+Currently, the plug-in is pretty bare bones. You include the address (URI) of your book cover image, the book title, and links to 5 separate vendors:
+
+  * Amazon
+  * Nook
+  * Kobo
+  * iBooks
+  * Google Play Books
+
+A widget for that book appears in your sidebar. You can add as many book widgets as you would like.
 
 == Installation ==
 1. Download the latest version from GitHub
