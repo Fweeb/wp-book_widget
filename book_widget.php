@@ -148,7 +148,7 @@ class Book_Widget extends WP_Widget {
         $instance['nook_uri'] = ( ! empty( $new_instance['nook_uri'] ) ) ? strip_tags( $new_instance['nook_uri'] ) : '';
         $instance['kobo_uri'] = ( ! empty( $new_instance['kobo_uri'] ) ) ? strip_tags( $new_instance['kobo_uri'] ) : '';
         $instance['ibooks_uri'] = ( ! empty( $new_instance['ibooks_uri'] ) ) ? strip_tags( $new_instance['ibooks_uri'] ) : '';
-        $instance['nook_uri'] = ( ! empty( $new_instance['gplaybooks_uri'] ) ) ? strip_tags( $new_instance['gplaybooks_uri'] ) : '';
+        $instance['gplaybooks_uri'] = ( ! empty( $new_instance['gplaybooks_uri'] ) ) ? strip_tags( $new_instance['gplaybooks_uri'] ) : '';
 
         return $instance;
     }
