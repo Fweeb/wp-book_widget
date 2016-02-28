@@ -38,11 +38,10 @@ class Book_Widget extends WP_Widget {
         if ( ! empty( $instance['bookcover_uri'] ) ) {
             ?>
             <p><a href="<?php echo $instance['amazon_uri']; ?>"><img src="<?php echo $instance['bookcover_uri']; ?>" width="100" height="150" alt="<?php echo $instance['title']; ?>" title="<?php echo $instance['title']; ?>"/></a></p>
-            <p>Purchase on:
-                <ul style="list-decoration-type: none; display: inline; margin: 0;">
-                    <li><a href="<?php echo $instance['amazon_uri']; ?>"><img src="<?php echo plugins_url( 'img/btn_amazon.png', __FILE__ ); ?>" width="24" height="24" alt="Amazon" title="Amazon" /></a>
-                </ul>
-            </p>
+            <p>Purchase on:</p>
+            <ul style="list-style-type: none; display: inline; margin: 0;">
+                <li><a href="<?php echo $instance['amazon_uri']; ?>"><img src="<?php echo plugins_url( 'img/btn_amazon.png', __FILE__ ); ?>" width="24" height="24" alt="Amazon" title="Amazon" /></a></li>
+            </ul>
             <?php
         }
         echo $args['after_widget'];
