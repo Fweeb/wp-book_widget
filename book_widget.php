@@ -3,7 +3,7 @@
 Plugin Name: Book Widget
 Plugin URI: <insert GitHub link>
 Description: A simple widget for adding links to your books for sale on sites like Amazon, Kobo, Nook, etc.
-Version: 0.1
+Version: 0.5
 Author: Jason van Gumster (Fweeb)
 Author URI: http://monsterjavaguns.com
 License: GPL3
