@@ -37,10 +37,9 @@ class Book_Widget extends WP_Widget {
         }
         if ( ! empty( $instance['bookcover_uri'] ) ) {
             ?>
-            <img src="<?php echo $instance['bookcover_uri']; ?>" width="100" height="150" alt="<?php echo $instance['title']; ?>" />
+            <a href="<?php echo $instance['amazon_uri']; ?>"><img src="<?php echo $instance['bookcover_uri']; ?>" width="100" height="150" alt="<?php echo $instance['title']; ?>" /></a>
             <?php
         }
-        echo __( 'Test', 'text_domain' ); //XXX
         echo $args['after_widget'];
     }
 
@@ -51,7 +50,7 @@ class Book_Widget extends WP_Widget {
 	 */
     public function form( $instance ) {
         $title = ! empty( $instance['title'] ) ? $instance['title'] : __( 'New title', 'text_domain' );
-        $bookcover_uri = ! empty( $instance['bookcover_uri'] ) ? $instance['bookcover_uri'] : __( 'Book cover URI', 'text_domain' );
+        $bookcover_uri = ! empty( $instance['bookcover_uri'] ) ? $instance['bookcover_uri'] : __( 'https://', 'text_domain' );
         ?>
         <p>
         <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
@@ -60,6 +59,10 @@ class Book_Widget extends WP_Widget {
         <p>
         <label for="<?php echo $this->get_field_id( 'bookcover_uri' ); ?>"><?php _e( 'Book Cover URI:' ); ?></label>
         <input class="widefat" id="<?php echo $this->get_field_id( 'bookcover_uri' ); ?>" name="<?php echo $this->get_field_name( 'bookcover_uri' ); ?>" type="text" value="<?php echo esc_attr( $bookcover_uri ); ?>">
+        </p>
+        <p>
+        <label for="<?php echo $this->get_field_id( 'amazon_uri' ); ?>"><?php _e( 'Amazon URI:' ); ?></label>
+        <input class="widefat" id="<?php echo $this->get_field_id( 'amazon_uri' ); ?>" name="<?php echo $this->get_field_name( 'amazon_uri' ); ?>" type="text" value="<?php echo esc_attr( $amazon_uri ); ?>">
         </p>
         <?php
     }
@@ -74,6 +77,7 @@ class Book_Widget extends WP_Widget {
         $instance = array();
         $instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
         $instance['bookcover_uri'] = ( ! empty( $new_instance['bookcover_uri'] ) ) ? strip_tags( $new_instance['bookcover_uri'] ) : '';
+        $instance['amazon_uri'] = ( ! empty( $new_instance['amazon_uri'] ) ) ? strip_tags( $new_instance['amazon_uri'] ) : '';
 
         return $instance;
     }
