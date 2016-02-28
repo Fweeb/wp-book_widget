@@ -36,6 +36,12 @@ class Book_Widget extends WP_Widget {
             $vendors['amazon'] = $instance['amazon_uri'];
         if ( ! empty( $instance['nook_uri'] ) && $instance['nook_uri'] !== 'https://' )
             $vendors['nook'] = $instance['nook_uri'];
+        if ( ! empty( $instance['kobo_uri'] ) && $instance['kobo_uri'] !== 'https://' )
+            $vendors['kobo'] = $instance['kobo_uri'];
+        if ( ! empty( $instance['ibooks_uri'] ) && $instance['ibooks_uri'] !== 'https://' )
+            $vendors['ibooks'] = $instance['ibooks_uri'];
+        if ( ! empty( $instance['gplaybooks_uri'] ) && $instance['gplaybooks_uri'] !== 'https://' )
+            $vendors['gplaybooks'] = $instance['gplaybooks_uri'];
 
         echo $args['before_widget'];
         if ( ! empty( $instance['title'] ) ) {
@@ -61,6 +67,21 @@ class Book_Widget extends WP_Widget {
                     <li style="display: inline;"><a href="<?php echo $vendors['nook']; ?>"><img src="<?php echo plugins_url( 'img/btn_nook.png', __FILE__ ); ?>" width="24" height="24" alt="Nook" title="Nook" /></a></li>
                     <?php
                 }
+                if ( ! empty( $vendors['kobo'] ) ) {
+                    ?>
+                    <li style="display: inline;"><a href="<?php echo $vendors['kobo']; ?>"><img src="<?php echo plugins_url( 'img/btn_kobo.png', __FILE__ ); ?>" width="24" height="24" alt="Kobo" title="Kobo" /></a></li>
+                    <?php
+                }
+                if ( ! empty( $vendors['ibooks'] ) ) {
+                    ?>
+                    <li style="display: inline;"><a href="<?php echo $vendors['ibooks']; ?>"><img src="<?php echo plugins_url( 'img/btn_ibooks.png', __FILE__ ); ?>" width="24" height="24" alt="iBooks" title="iBooks" /></a></li>
+                    <?php
+                }
+                if ( ! empty( $vendors['gplaybooks'] ) ) {
+                    ?>
+                    <li style="display: inline;"><a href="<?php echo $vendors['gplaybooks']; ?>"><img src="<?php echo plugins_url( 'img/btn_gplaybooks.png', __FILE__ ); ?>" width="24" height="24" alt="Google Play Books" title="Google Play Books" /></a></li>
+                    <?php
+                }
             ?>
             </ul>
             <?php
@@ -78,6 +99,9 @@ class Book_Widget extends WP_Widget {
         $bookcover_uri = ! empty( $instance['bookcover_uri'] ) ? $instance['bookcover_uri'] : __( 'https://', 'text_domain' );
         $amazon_uri = ! empty( $instance['amazon_uri'] ) ? $instance['amazon_uri'] : __( 'https://', 'text_domain' );
         $nook_uri = ! empty( $instance['nook_uri'] ) ? $instance['nook_uri'] : __( 'https://', 'text_domain' );
+        $kobo_uri = ! empty( $instance['kobo_uri'] ) ? $instance['kobo_uri'] : __( 'https://', 'text_domain' );
+        $ibooks_uri = ! empty( $instance['ibooks_uri'] ) ? $instance['ibooks_uri'] : __( 'https://', 'text_domain' );
+        $gplaybooks_uri = ! empty( $instance['gplaybooks_uri'] ) ? $instance['gplaybooks_uri'] : __( 'https://', 'text_domain' );
         ?>
         <p>
         <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
@@ -91,9 +115,21 @@ class Book_Widget extends WP_Widget {
         <label for="<?php echo $this->get_field_id( 'amazon_uri' ); ?>"><?php _e( 'Amazon URI:' ); ?></label>
         <input class="widefat" id="<?php echo $this->get_field_id( 'amazon_uri' ); ?>" name="<?php echo $this->get_field_name( 'amazon_uri' ); ?>" type="text" value="<?php echo esc_attr( $amazon_uri ); ?>">
         </p>
-         <p>
+        <p>
         <label for="<?php echo $this->get_field_id( 'nook_uri' ); ?>"><?php _e( 'Nook URI:' ); ?></label>
         <input class="widefat" id="<?php echo $this->get_field_id( 'nook_uri' ); ?>" name="<?php echo $this->get_field_name( 'nook_uri' ); ?>" type="text" value="<?php echo esc_attr( $nook_uri ); ?>">
+        </p>
+        <p>
+        <label for="<?php echo $this->get_field_id( 'kobo_uri' ); ?>"><?php _e( 'Kobo URI:' ); ?></label>
+        <input class="widefat" id="<?php echo $this->get_field_id( 'kobo_uri' ); ?>" name="<?php echo $this->get_field_name( 'kobo_uri' ); ?>" type="text" value="<?php echo esc_attr( $kobo_uri ); ?>">
+        </p>
+        <p>
+        <label for="<?php echo $this->get_field_id( 'ibooks_uri' ); ?>"><?php _e( 'iBooks URI:' ); ?></label>
+        <input class="widefat" id="<?php echo $this->get_field_id( 'ibooks_uri' ); ?>" name="<?php echo $this->get_field_name( 'ibooks_uri' ); ?>" type="text" value="<?php echo esc_attr( $ibooks_uri ); ?>">
+        </p>
+        <p>
+        <label for="<?php echo $this->get_field_id( 'gplaybooks_uri' ); ?>"><?php _e( 'Google Play Books URI:' ); ?></label>
+        <input class="widefat" id="<?php echo $this->get_field_id( 'gplaybooks_uri' ); ?>" name="<?php echo $this->get_field_name( 'gplaybooks_uri' ); ?>" type="text" value="<?php echo esc_attr( $gplaybooks_uri ); ?>">
         </p>
        <?php
     }
@@ -110,6 +146,9 @@ class Book_Widget extends WP_Widget {
         $instance['bookcover_uri'] = ( ! empty( $new_instance['bookcover_uri'] ) ) ? strip_tags( $new_instance['bookcover_uri'] ) : '';
         $instance['amazon_uri'] = ( ! empty( $new_instance['amazon_uri'] ) ) ? strip_tags( $new_instance['amazon_uri'] ) : '';
         $instance['nook_uri'] = ( ! empty( $new_instance['nook_uri'] ) ) ? strip_tags( $new_instance['nook_uri'] ) : '';
+        $instance['kobo_uri'] = ( ! empty( $new_instance['kobo_uri'] ) ) ? strip_tags( $new_instance['kobo_uri'] ) : '';
+        $instance['ibooks_uri'] = ( ! empty( $new_instance['ibooks_uri'] ) ) ? strip_tags( $new_instance['ibooks_uri'] ) : '';
+        $instance['nook_uri'] = ( ! empty( $new_instance['gplaybooks_uri'] ) ) ? strip_tags( $new_instance['gplaybooks_uri'] ) : '';
 
         return $instance;
     }
