@@ -6,14 +6,21 @@ That's the plan anyway. Right now it's still a bit early.
 
 ## Current features
 
-Currently, the plug-in is pretty bare bones. You include the address (URI) of your book cover image, the book title, and a link to Amazon. It creates something simple for your sidebar.
+Currently, the plug-in is pretty bare bones. You include the address (URI) of your book cover image, the book title, and links to 5 separate vendors:
+
+* Amazon
+* Nook
+* Kobo
+* iBooks
+* Google Play Books
+
+A widget for that book appears in your sidebar. You can add as many book widgets as you would like.
 
 ## Future features
 
 * The ability to use images in your media library as cover images
 * Inclusion of book price
-* Additional retailers
-* Icon links for additional retailers
+* Possibly the ability to add additional vendors
 
 ## Installation
 
