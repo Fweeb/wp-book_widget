@@ -31,6 +31,12 @@ class Book_Widget extends WP_Widget {
 	 * @param array $instance
 	 */
     public function widget( $args, $instance ) {
+        $vendors = array();
+        if ( ! empty( $instance['amazon_uri'] ) && $instance['amazon_uri' !== 'https://' )
+            $vendors['amazon'] = $instance['amazon_uri'];
+        if ( ! empty( $instance['nook_uri'] ) && $instance['nook_uri' !== 'https://' )
+            $vendors['nook'] = $instance['nook_uri'];
+
         echo $args['before_widget'];
         if ( ! empty( $instance['title'] ) ) {
             echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
@@ -40,20 +46,19 @@ class Book_Widget extends WP_Widget {
             <p><img src="<?php echo $instance['bookcover_uri']; ?>" width="100" height="150" alt="<?php echo $instance['title']; ?>" title="<?php echo $instance['title']; ?>" /></p>
             <?php
         }
-        if ( ! empty( $instance['amazon_uri'] ) &&
-             ! empty( $instance['nook_uri'] ) ) {
+        if ( count( $vendors ) > 0 ) {
             ?>
             <p>Purchase on:</p>
             <ul style="list-style-type: none; display: inline; margin: 0; padding: 0;">
             <?php
-                if ( ! empty( $instance['amazon_uri'] ) ) {
+                if ( ! empty( $vendor['amazon'] ) ) {
                     ?>
-                    <li><a href="<?php echo $instance['amazon_uri']; ?>"><img src="<?php echo plugins_url( 'img/btn_amazon.png', __FILE__ ); ?>" width="24" height="24" alt="Amazon" title="Amazon" /></a></li>
+                    <li><a href="<?php echo $vendor['amazon']; ?>"><img src="<?php echo plugins_url( 'img/btn_amazon.png', __FILE__ ); ?>" width="24" height="24" alt="Amazon" title="Amazon" /></a></li>
                     <?php
                 }
-                if ( ! empty( $instance['nook_uri'] ) ) {
+                if ( ! empty( $vendor['nook'] ) ) {
                     ?>
-                    <li><a href="<?php echo $instance['nook_uri']; ?>"><img src="<?php echo plugins_url( 'img/btn_nook.png', __FILE__ ); ?>" width="24" height="24" alt="Nook" title="Nook" /></a></li>
+                    <li><a href="<?php echo $vendor['nook']; ?>"><img src="<?php echo plugins_url( 'img/btn_nook.png', __FILE__ ); ?>" width="24" height="24" alt="Nook" title="Nook" /></a></li>
                     <?php
                 }
             ?>
