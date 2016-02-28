@@ -51,14 +51,14 @@ class Book_Widget extends WP_Widget {
             <p>Purchase on:</p>
             <ul style="list-style-type: none; display: inline; margin: 0; padding: 0;">
             <?php
-                if ( ! empty( $vendor['amazon'] ) ) {
+                if ( ! empty( $vendors['amazon'] ) ) {
                     ?>
-                    <li><a href="<?php echo $vendor['amazon']; ?>"><img src="<?php echo plugins_url( 'img/btn_amazon.png', __FILE__ ); ?>" width="24" height="24" alt="Amazon" title="Amazon" /></a></li>
+                    <li><a href="<?php echo $vendors['amazon']; ?>"><img src="<?php echo plugins_url( 'img/btn_amazon.png', __FILE__ ); ?>" width="24" height="24" alt="Amazon" title="Amazon" /></a></li>
                     <?php
                 }
-                if ( ! empty( $vendor['nook'] ) ) {
+                if ( ! empty( $vendors['nook'] ) ) {
                     ?>
-                    <li><a href="<?php echo $vendor['nook']; ?>"><img src="<?php echo plugins_url( 'img/btn_nook.png', __FILE__ ); ?>" width="24" height="24" alt="Nook" title="Nook" /></a></li>
+                    <li><a href="<?php echo $vendors['nook']; ?>"><img src="<?php echo plugins_url( 'img/btn_nook.png', __FILE__ ); ?>" width="24" height="24" alt="Nook" title="Nook" /></a></li>
                     <?php
                 }
             ?>
