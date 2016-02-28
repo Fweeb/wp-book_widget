@@ -51,6 +51,7 @@ class Book_Widget extends WP_Widget {
     public function form( $instance ) {
         $title = ! empty( $instance['title'] ) ? $instance['title'] : __( 'New title', 'text_domain' );
         $bookcover_uri = ! empty( $instance['bookcover_uri'] ) ? $instance['bookcover_uri'] : __( 'https://', 'text_domain' );
+        $amazon_uri = ! empty( $instance['amazon_uri'] ) ? $instance['amazon_uri'] : __( 'https://', 'text_domain' );
         ?>
         <p>
         <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
