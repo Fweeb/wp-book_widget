@@ -18,7 +18,6 @@ A widget for that book appears in your sidebar. You can add as many book widgets
 
 ## Future features
 
-* The ability to use images in your media library as cover images
 * Inclusion of book price
 * Possibly the ability to add additional vendors
 
