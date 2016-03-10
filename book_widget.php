@@ -21,7 +21,16 @@ class Book_Widget extends WP_Widget {
             'classname' => 'book_widget',
             'description' => 'A simple widget for adding links to your books for sale on sites like Amazon, Kobo, Nook, etc.',
         );
+
+        add_action( 'admin_enqueue_scripts', array( $this, 'scripts' ) );
+
         parent::__construct( 'book_widget', 'Book Widget', $widget_ops );
+    }
+
+    public function scripts() {
+        wp_enqueue_script( 'media-upload' );
+        wp_enqueue_media();
+        wp_enqueue_script( 'media-widget-upload', plugin_dir_url(__FILE__) . 'media-widget.js', array( 'jquery' ) );
     }
 
     /**
@@ -47,9 +56,9 @@ class Book_Widget extends WP_Widget {
         if ( ! empty( $instance['title'] ) ) {
             echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
         }
-        if ( ! empty( $instance['bookcover_uri'] ) ) {
+        if ( ! empty( $instance['bookcover_img'] ) ) {
             ?>
-            <p><img src="<?php echo $instance['bookcover_uri']; ?>" width="100" height="150" alt="<?php echo $instance['title']; ?>" title="<?php echo $instance['title']; ?>" /></p>
+            <p><img src="<?php echo esc_url($instance['bookcover_img']); ?>" width="100" height="150" alt="<?php echo $instance['title']; ?>" title="<?php echo $instance['title']; ?>" /></p>
             <?php
         }
         if ( count( $vendors ) > 0 ) {
@@ -96,7 +105,7 @@ class Book_Widget extends WP_Widget {
 	 */
     public function form( $instance ) {
         $title = ! empty( $instance['title'] ) ? $instance['title'] : __( 'New title', 'text_domain' );
-        $bookcover_uri = ! empty( $instance['bookcover_uri'] ) ? $instance['bookcover_uri'] : __( 'https://', 'text_domain' );
+        $bookcover_img = ! empty( $instance['bookcover_img'] ) ? $instance['bookcover_img'] : '';
         $amazon_uri = ! empty( $instance['amazon_uri'] ) ? $instance['amazon_uri'] : __( 'https://', 'text_domain' );
         $nook_uri = ! empty( $instance['nook_uri'] ) ? $instance['nook_uri'] : __( 'https://', 'text_domain' );
         $kobo_uri = ! empty( $instance['kobo_uri'] ) ? $instance['kobo_uri'] : __( 'https://', 'text_domain' );
@@ -108,8 +117,9 @@ class Book_Widget extends WP_Widget {
         <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
         </p>
         <p>
-        <label for="<?php echo $this->get_field_id( 'bookcover_uri' ); ?>"><?php _e( 'Book Cover URI:' ); ?></label>
-        <input class="widefat" id="<?php echo $this->get_field_id( 'bookcover_uri' ); ?>" name="<?php echo $this->get_field_name( 'bookcover_uri' ); ?>" type="text" value="<?php echo esc_attr( $bookcover_uri ); ?>">
+        <label for="<?php echo $this->get_field_id( 'bookcover_img' ); ?>"><?php _e( 'Book Cover Image:' ); ?></label>
+        <input class="widefat" id="<?php echo $this->get_field_id( 'bookcover_img' ); ?>" name="<?php echo $this->get_field_name( 'bookcover_img' ); ?>" type="text" value="<?php echo esc_url( $bookcover_img ); ?>">
+        <button class="upload_image_button button button-primary">Upload Image</button>
         </p>
         <p>
         <label for="<?php echo $this->get_field_id( 'amazon_uri' ); ?>"><?php _e( 'Amazon URI:' ); ?></label>
@@ -143,7 +153,7 @@ class Book_Widget extends WP_Widget {
     function update( $new_instance, $old_instance ) {
         $instance = array();
         $instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
-        $instance['bookcover_uri'] = ( ! empty( $new_instance['bookcover_uri'] ) ) ? strip_tags( $new_instance['bookcover_uri'] ) : '';
+        $instance['bookcover_img'] = ( ! empty( $new_instance['bookcover_img'] ) ) ? $new_instance['bookcover_img'] : '';
         $instance['amazon_uri'] = ( ! empty( $new_instance['amazon_uri'] ) ) ? strip_tags( $new_instance['amazon_uri'] ) : '';
         $instance['nook_uri'] = ( ! empty( $new_instance['nook_uri'] ) ) ? strip_tags( $new_instance['nook_uri'] ) : '';
         $instance['kobo_uri'] = ( ! empty( $new_instance['kobo_uri'] ) ) ? strip_tags( $new_instance['kobo_uri'] ) : '';
