@@ -68,27 +68,27 @@ class Book_Widget extends WP_Widget {
             <?php
                 if ( ! empty( $vendors['amazon'] ) ) {
                     ?>
-                    <li style="display: inline;"><a href="<?php echo $vendors['amazon']; ?>"><img src="<?php echo plugins_url( 'img/btn_amazon.png', __FILE__ ); ?>" width="24" height="24" alt="Amazon" title="Amazon" /></a></li>
+                    <li style="display: inline;"><a href="<?php echo esc_url($vendors['amazon']); ?>"><img src="<?php echo plugins_url( 'img/btn_amazon.png', __FILE__ ); ?>" width="24" height="24" alt="Amazon" title="Amazon" /></a></li>
                     <?php
                 }
                 if ( ! empty( $vendors['nook'] ) ) {
                     ?>
-                    <li style="display: inline;"><a href="<?php echo $vendors['nook']; ?>"><img src="<?php echo plugins_url( 'img/btn_nook.png', __FILE__ ); ?>" width="24" height="24" alt="Nook" title="Nook" /></a></li>
+                    <li style="display: inline;"><a href="<?php echo esc_url($vendors['nook']); ?>"><img src="<?php echo plugins_url( 'img/btn_nook.png', __FILE__ ); ?>" width="24" height="24" alt="Nook" title="Nook" /></a></li>
                     <?php
                 }
                 if ( ! empty( $vendors['kobo'] ) ) {
                     ?>
-                    <li style="display: inline;"><a href="<?php echo $vendors['kobo']; ?>"><img src="<?php echo plugins_url( 'img/btn_kobo.png', __FILE__ ); ?>" width="24" height="24" alt="Kobo" title="Kobo" /></a></li>
+                    <li style="display: inline;"><a href="<?php echo esc_url($vendors['kobo']); ?>"><img src="<?php echo plugins_url( 'img/btn_kobo.png', __FILE__ ); ?>" width="24" height="24" alt="Kobo" title="Kobo" /></a></li>
                     <?php
                 }
                 if ( ! empty( $vendors['ibooks'] ) ) {
                     ?>
-                    <li style="display: inline;"><a href="<?php echo $vendors['ibooks']; ?>"><img src="<?php echo plugins_url( 'img/btn_ibooks.png', __FILE__ ); ?>" width="24" height="24" alt="iBooks" title="iBooks" /></a></li>
+                    <li style="display: inline;"><a href="<?php echo esc_url($vendors['ibooks']); ?>"><img src="<?php echo plugins_url( 'img/btn_ibooks.png', __FILE__ ); ?>" width="24" height="24" alt="iBooks" title="iBooks" /></a></li>
                     <?php
                 }
                 if ( ! empty( $vendors['gplaybooks'] ) ) {
                     ?>
-                    <li style="display: inline;"><a href="<?php echo $vendors['gplaybooks']; ?>"><img src="<?php echo plugins_url( 'img/btn_gplaybooks.png', __FILE__ ); ?>" width="24" height="24" alt="Google Play Books" title="Google Play Books" /></a></li>
+                    <li style="display: inline;"><a href="<?php echo esc_url($vendors['gplaybooks']); ?>"><img src="<?php echo plugins_url( 'img/btn_gplaybooks.png', __FILE__ ); ?>" width="24" height="24" alt="Google Play Books" title="Google Play Books" /></a></li>
                     <?php
                 }
             ?>
@@ -123,23 +123,23 @@ class Book_Widget extends WP_Widget {
         </p>
         <p>
         <label for="<?php echo $this->get_field_id( 'amazon_uri' ); ?>"><?php _e( 'Amazon URI:' ); ?></label>
-        <input class="widefat" id="<?php echo $this->get_field_id( 'amazon_uri' ); ?>" name="<?php echo $this->get_field_name( 'amazon_uri' ); ?>" type="text" value="<?php echo esc_attr( $amazon_uri ); ?>">
+        <input class="widefat" id="<?php echo $this->get_field_id( 'amazon_uri' ); ?>" name="<?php echo $this->get_field_name( 'amazon_uri' ); ?>" type="text" value="<?php echo esc_url( $amazon_uri ); ?>">
         </p>
         <p>
         <label for="<?php echo $this->get_field_id( 'nook_uri' ); ?>"><?php _e( 'Nook URI:' ); ?></label>
-        <input class="widefat" id="<?php echo $this->get_field_id( 'nook_uri' ); ?>" name="<?php echo $this->get_field_name( 'nook_uri' ); ?>" type="text" value="<?php echo esc_attr( $nook_uri ); ?>">
+        <input class="widefat" id="<?php echo $this->get_field_id( 'nook_uri' ); ?>" name="<?php echo $this->get_field_name( 'nook_uri' ); ?>" type="text" value="<?php echo esc_url( $nook_uri ); ?>">
         </p>
         <p>
         <label for="<?php echo $this->get_field_id( 'kobo_uri' ); ?>"><?php _e( 'Kobo URI:' ); ?></label>
-        <input class="widefat" id="<?php echo $this->get_field_id( 'kobo_uri' ); ?>" name="<?php echo $this->get_field_name( 'kobo_uri' ); ?>" type="text" value="<?php echo esc_attr( $kobo_uri ); ?>">
+        <input class="widefat" id="<?php echo $this->get_field_id( 'kobo_uri' ); ?>" name="<?php echo $this->get_field_name( 'kobo_uri' ); ?>" type="text" value="<?php echo esc_url( $kobo_uri ); ?>">
         </p>
         <p>
         <label for="<?php echo $this->get_field_id( 'ibooks_uri' ); ?>"><?php _e( 'iBooks URI:' ); ?></label>
-        <input class="widefat" id="<?php echo $this->get_field_id( 'ibooks_uri' ); ?>" name="<?php echo $this->get_field_name( 'ibooks_uri' ); ?>" type="text" value="<?php echo esc_attr( $ibooks_uri ); ?>">
+        <input class="widefat" id="<?php echo $this->get_field_id( 'ibooks_uri' ); ?>" name="<?php echo $this->get_field_name( 'ibooks_uri' ); ?>" type="text" value="<?php echo esc_url( $ibooks_uri ); ?>">
         </p>
         <p>
         <label for="<?php echo $this->get_field_id( 'gplaybooks_uri' ); ?>"><?php _e( 'Google Play Books URI:' ); ?></label>
-        <input class="widefat" id="<?php echo $this->get_field_id( 'gplaybooks_uri' ); ?>" name="<?php echo $this->get_field_name( 'gplaybooks_uri' ); ?>" type="text" value="<?php echo esc_attr( $gplaybooks_uri ); ?>">
+        <input class="widefat" id="<?php echo $this->get_field_id( 'gplaybooks_uri' ); ?>" name="<?php echo $this->get_field_name( 'gplaybooks_uri' ); ?>" type="text" value="<?php echo esc_url( $gplaybooks_uri ); ?>">
         </p>
        <?php
     }
