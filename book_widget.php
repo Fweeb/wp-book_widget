@@ -58,7 +58,7 @@ class Book_Widget extends WP_Widget {
         }
         if ( ! empty( $instance['bookcover_img'] ) ) {
             ?>
-            <p><img src="<?php echo esc_url($instance['bookcover_img']); ?>" width="100" height="150" alt="<?php echo $instance['title']; ?>" title="<?php echo $instance['title']; ?>" /></p>
+            <p style="text-align: center;"><img src="<?php echo esc_url($instance['bookcover_img']); ?>" width="100" alt="<?php echo $instance['title']; ?>" title="<?php echo $instance['title']; ?>" /></p>
             <?php
         }
         if ( count( $vendors ) > 0 ) {
