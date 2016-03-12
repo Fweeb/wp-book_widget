@@ -117,9 +117,16 @@ class Book_Widget extends WP_Widget {
         <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
         </p>
         <p>
+        <?php
+        if ( $bookcover_img != '' ) {
+        ?>
+        <img src="<?php echo esc_url( $bookcover_img ); ?>" width="100" alt="" />
+        <?php
+        }
+        ?>
         <label for="<?php echo $this->get_field_id( 'bookcover_img' ); ?>"><?php _e( 'Book Cover Image:' ); ?></label>
         <input class="widefat" id="<?php echo $this->get_field_id( 'bookcover_img' ); ?>" name="<?php echo $this->get_field_name( 'bookcover_img' ); ?>" type="text" value="<?php echo esc_url( $bookcover_img ); ?>">
-        <button class="upload_image_button button button-primary">Upload Image</button>
+        <button class="upload_image_button button button-primary">Upload/Choose Image</button>
         </p>
         <p>
         <label for="<?php echo $this->get_field_id( 'amazon_uri' ); ?>"><?php _e( 'Amazon URI:' ); ?></label>
