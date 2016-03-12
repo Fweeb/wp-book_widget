@@ -2,11 +2,9 @@
 
 This is a really simple WordPress plugin that adds a sidebar widget. The widget has your book's title, an image of your book cover, and links to places to purchase the book at various retailers (i.e. Amazon, Kobo, Nook, iTunes, etc.)
 
-That's the plan anyway. Right now it's still a bit early.
-
 ## Current features
 
-Currently, the plug-in is pretty bare bones. You include the address (URI) of your book cover image, the book title, and links to 5 separate vendors:
+You can upload your book cover image (or choose it from the WordPress Media Library if you've already uploaded it), enter the book title, and add links to 5 separate vendors:
 
 * Amazon
 * Nook
@@ -14,12 +12,14 @@ Currently, the plug-in is pretty bare bones. You include the address (URI) of yo
 * iBooks
 * Google Play Books
 
-A widget for that book appears in your sidebar. You can add as many book widgets as you would like.
+A widget for that book appears in your sidebar with links to all of the vendors you entered. You can add as many book widgets as you would like.
 
-## Future features
+## Possible future features
 
 * Inclusion of book price
 * Possibly the ability to add additional vendors
+* Customizable image size for the book cover image
+* Modifications to aesthetics
 
 ## Installation
 
