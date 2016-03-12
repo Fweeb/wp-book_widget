@@ -2,7 +2,7 @@
 Contributors: Fweeb
 Tags: widget, book, amazon, nook, kobo, ibooks, google play books, affiliate links
 Tested up to: 4.4.2
-Stable tag: master
+Stable tag: 1.0
 License: GPL3
 License URI: http://www.gnu.org/licenses/gpl.txt
 
