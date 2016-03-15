@@ -25,8 +25,7 @@ A widget for that book appears in your sidebar with links to all of the vendors 
 
 Eventually, you'll be able to install right from within WordPress. However, while in development, you do it this way:
 
-1. Download the latest version from GitHub (here)
-2. Upload the ZIP file to your web host
-3. Decompress the ZIP file in your WordPress Plugins directory
-4. Activate Book Widget from the Plugins section of your WordPress install
-5. Add a widget for each book you want on your sidebar.
+1. Download the latest stable version
+2. Upload the plugin files and images to `/wp-content/plugins/book-widget` directory, or install through the WordPress plugins screen directly
+3. Activate Book Widget from the Plugins section of WordPress
+4. Add a widget for each book you want on your sidebar.

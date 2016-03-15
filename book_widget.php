@@ -3,7 +3,7 @@
 Plugin Name: Book Widget
 Plugin URI: https://github.com/Fweeb/wp-book_widget
 Description: A simple widget for adding links to your books for sale on sites like Amazon, Kobo, Nook, etc.
-Version: 1.0
+Version: 1.0.0
 Author: Jason van Gumster (Fweeb)
 Author URI: http://monsterjavaguns.com
 License: GPL3

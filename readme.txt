@@ -2,7 +2,7 @@
 Contributors: Fweeb
 Tags: widget, book, amazon, nook, kobo, ibooks, google play books, affiliate links
 Tested up to: 4.4.2
-Stable tag: 1.0
+Stable tag: 1.0.0
 License: GPL3
 License URI: http://www.gnu.org/licenses/gpl.txt
 
@@ -20,11 +20,10 @@ You can upload your book cover image (or choose it from the WordPress Media Libr
 A widget for that book appears in your sidebar with links to all of the vendors you entered. You can add as many book widgets as you would like.
 
 == Installation ==
-1. Download the latest version from GitHub
-2. Upload the ZIP file to your web host
-3. Decompress the ZIP file in your WordPress Plugins directory
-4. Activate Book Widget from the Plugins section of your WordPress install
-5. Add a widget for each book you want on your sidebar.
+1. Download the latest stable version
+2. Upload the plugin files and images to `/wp-content/plugins/book-widget` directory, or install through the WordPress plugins screen directly
+3. Activate Book Widget from the Plugins section of WordPress
+4. Add a widget for each book you want on your sidebar.
 
 == Changelog ==
 1.0
