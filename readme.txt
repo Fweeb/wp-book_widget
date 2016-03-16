@@ -1,5 +1,5 @@
 === Book Widget ===
-Contributors: Fweeb
+Contributors: fweeb
 Tags: widget, book, amazon, nook, kobo, ibooks, google play books, affiliate links
 Tested up to: 4.4.2
 Stable tag: 1.0.0
