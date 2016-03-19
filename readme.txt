@@ -2,7 +2,7 @@
 Contributors: fweeb
 Tags: widget, book, amazon, nook, kobo, ibooks, google play books, affiliate links
 Tested up to: 4.4.2
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 License: GPL3
 License URI: http://www.gnu.org/licenses/gpl.txt
 
@@ -26,13 +26,16 @@ A widget for that book appears in your sidebar with links to all of the vendors 
 4. Add a widget for each book you want on your sidebar.
 
 == Changelog ==
-1.0
+1.1.0
+* Shifted vendor icons to be located more pleasantly below the book cover image
+
+1.0.0
 * Book cover image now shows in the widget form on the admin panel
 
-0.9
+0.9.0
 * Added the ability to use the WordPress Media Library for the book cover image
 * Minor clean-up of code
 * Minor appearance change of the book cover image in the sidebar (centered, proportional height)
 
-0.5
+0.5.0
 * Basic functionality
