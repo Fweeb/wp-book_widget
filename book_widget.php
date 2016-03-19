@@ -58,13 +58,14 @@ class Book_Widget extends WP_Widget {
         }
         if ( ! empty( $instance['bookcover_img'] ) ) {
             ?>
-            <p style="text-align: center;"><img src="<?php echo esc_url($instance['bookcover_img']); ?>" width="100" alt="<?php echo $instance['title']; ?>" title="<?php echo $instance['title']; ?>" /></p>
+            <div style="width: 125px;">
+                <p style="text-align: center;"><img src="<?php echo esc_url($instance['bookcover_img']); ?>" width="100" alt="<?php echo $instance['title']; ?>" title="<?php echo $instance['title']; ?>" /></p>
             <?php
         }
         if ( count( $vendors ) > 0 ) {
             ?>
-            <p>Purchase on:</p>
-            <ul style="list-style-type: none; display: inline; margin: 0; padding: 0;">
+                <p>Purchase on:</p>
+                <ul style="list-style-type: none; display: inline; margin: 0; padding: 0;">
             <?php
                 if ( ! empty( $vendors['amazon'] ) ) {
                     ?>
@@ -92,7 +93,8 @@ class Book_Widget extends WP_Widget {
                     <?php
                 }
             ?>
-            </ul>
+                </ul>
+            </div>
             <?php
         }
         echo $args['after_widget'];
