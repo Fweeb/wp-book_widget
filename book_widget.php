@@ -58,7 +58,7 @@ class Book_Widget extends WP_Widget {
         }
         if ( ! empty( $instance['bookcover_img'] ) ) {
             ?>
-            <div style="width: 125px;">
+            <div style="margin: 0 auto; width: 150px;">
                 <p style="text-align: center;"><img src="<?php echo esc_url($instance['bookcover_img']); ?>" width="100" alt="<?php echo $instance['title']; ?>" title="<?php echo $instance['title']; ?>" /></p>
             <?php
         }
