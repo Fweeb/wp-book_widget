@@ -1,6 +1,7 @@
 === Book Widget ===
 Contributors: fweeb
 Tags: widget, book, amazon, nook, kobo, ibooks, google play books, affiliate links
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=25TB9DLQRCKL2
 Tested up to: 4.4.2
 Stable tag: 1.1.0
 License: GPL3
